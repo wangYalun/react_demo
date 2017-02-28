@@ -229,6 +229,7 @@ export default React.createClass({
     if (!this.state.userinfo) {
       hashHistory.push('/login');
     }
+    return false;
   },
   componentDidMount() {
 

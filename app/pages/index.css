@@ -1,0 +1,56 @@
+.header{
+    background-color:#fff;
+    padding:0 20px;
+    line-height: 60px;
+    border-bottom: 1px solid #e9e9e9;
+}
+.logo{
+    margin: 0px 20px 0px 15px;
+    display: block;
+    width: 120px;
+    height: 60px;
+    background: url(../images/logo.png);
+}
+
+.nav-content .cascader{
+    margin: 6px 26px;
+}
+.content{
+    min-height: 650px;
+}
+.footer{
+    border-top: 1px solid #e9e9e9;
+    background-color: #fff;
+    text-align: center;
+}
+.userinfo{
+    
+}
+.content-header{
+    padding:12px 20px;
+    background-color: #fff;
+}
+.mod{
+    background-color: #fff;
+    border: 1px solid #e9e9e9;
+    margin:10px;
+}
+.mod .mod-header{
+    padding:14px 15px 0px;
+}
+.mod .mod-body{
+    padding:14px 14px 0px;
+}
+.content-header .filters{
+    margin-top: 10px;
+}
+.filters .filter{
+    display: inline-block;
+    margin-right: 20px;
+}
+.content-header .control-bar-wrapper{
+    margin-top:15px;
+}
+.select-input{
+    width:120px;
+}

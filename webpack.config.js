@@ -22,9 +22,13 @@ module.exports = {
     filename: './bundle.js'
   },
   module: {
-    loaders:[
-      { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
+    loaders: [
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url?limit=25000'
+      }
     ]
   },
   resolve: {

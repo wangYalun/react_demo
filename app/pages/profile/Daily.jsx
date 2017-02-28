@@ -4,6 +4,7 @@ import Highcharts from 'highcharts';
 import { api_base } from '../../apis/Api_base';
 
 
+
 export default React.createClass({
     getInitialState() {
         var day2 = new Date();

@@ -1,0 +1,25 @@
+#components-login-form{
+    width:300px;
+    margin: 0 auto;
+}
+#components-login-form .login-form{
+    max-width:300px;
+}
+#components-login-form .login-form-forgot{
+    float:rigth;
+}
+#components-login-form .login-form-button{
+    width:100%;
+}
+#components-login-form .logo{
+    margin: 30px auto;
+
+}
+
+#components-register-form{
+    max-width:500px;
+    margin: 30px auto;
+}
+#components-register-form .icp-selector {
+    width:60px;
+}

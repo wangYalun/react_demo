@@ -3,7 +3,7 @@ import util from '../utils/util';
 
 export default class Api_base {
     constructor() {
-        this.baseUrl = "http://data.local.gaopeng.com";
+        this.baseUrl = "http://localhost:8081";
     }
 
     request(obj) {
