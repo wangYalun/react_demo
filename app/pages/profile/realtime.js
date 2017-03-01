@@ -1,13 +1,15 @@
 import React from 'react';
 import Content from '../../components/content';
-import { DatePicker, Select, Radio } from 'antd';
+import Hchart from '../../components/hchart';
+import { DatePicker, Select, Radio, Row, Col } from 'antd';
 import moment from 'moment';
 
 const {Button: RadioButton, Group: RadioGroup} = Radio;
 const {RangePicker} = DatePicker;
-const {Option}=Select;
+const {Option} = Select;
 
 const {Mod, ContentHeader} = Content;
+const {Summary} = Mod;
 
 
 import { Table, Button } from 'antd';
@@ -67,13 +69,37 @@ export default React.createClass({
                 访客：<RadioGroup defaultValue="a">
                   <RadioButton value="a">全部</RadioButton>
                   <RadioButton value="b">新访客</RadioButton>
-                  <RadioButton value="c">老访客</RadioButton>              
+                  <RadioButton value="c">老访客</RadioButton>
                 </RadioGroup>
               </div>
             </div>
           </div>
         </ContentHeader>
+        <Row>
+          <Col span={8}> <Mod modName="时段分析" inline={true}>
+            <Hchart/>
+        </Mod></Col>
+        <Col span={8}><Mod modName="详细数据" inline={true}>
+          <Table dataSource={dataSource} columns={columns} size="small" />
+        </Mod></Col>
+        <Col span={8}><Mod modName="详细数据">
+          <Table dataSource={dataSource} columns={columns} size="small" />
+        </Mod></Col>
+        </Row>
         <Mod modName="今日数据">
+          <Row type="flex" justify="space-between">
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:-89.01,tipsTitle:"网站的访问量"}}/></Col>
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:-89.00}}/></Col>
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:89}}/></Col>
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:89}}/></Col>
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:89}}/></Col>
+            <Col span={4}><Summary summaryData={{title:"浏览量(PV)",num:"100",rate:89}}/></Col>
+          </Row>
+        </Mod>
+        <Mod modName="时段分析">
+            <Hchart/>
+        </Mod>
+        <Mod modName="详细数据">
           <Table dataSource={dataSource} columns={columns} size="small" />
         </Mod>
       </div>);

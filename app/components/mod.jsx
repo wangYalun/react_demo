@@ -9,4 +9,15 @@ var Mod=React.createClass({
     }
 });
 
+Mod.Summary=React.createClass({
+    render(){
+        const summaryData=this.props.summaryData;
+        return <div className="summary-wrap">
+            <div className="summary">{summaryData.title}</div>
+            <div className="summary">{summaryData.num}</div>
+            <div className="summary">{summaryData.rate}</div>
+        </div>
+    }
+});
+
 export default Mod;

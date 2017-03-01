@@ -48,8 +48,7 @@ export default React.createClass({
                 <Header className="header">
                     <Row>
                         <Col span={4}><div className="logo"></div></Col>
-                        <Col span={4}><Cascader options={options} defaultValue={['all', 'all']} /></Col>
-                        <Col span={2} offset={12}><div className="userinfo">Allen</div>
+                        <Col span={2} offset={16}><div className="userinfo">Allen</div>
                         </Col>
                         <Col span={2}><a className="logout">退出登录</a></Col>
                     </Row>
