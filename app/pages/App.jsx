@@ -18,7 +18,7 @@ let Navbar = React.createClass({
     hashHistory.push('/login');
   },
   render() {
-
+    
     return (
       <div className="navbar">
         <div className="navbar-header">

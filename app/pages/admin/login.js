@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, hashHistory, browserHistory } from 'react-router';
 import { api_base } from '../../apis/Api_base';
+import util from '../../utils/util';
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox,message } from 'antd';
 const FormItem = Form.Item;
 
 require('./admin.css');
@@ -15,7 +16,23 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        api_base.request({
+          method:'post',
+          url:'/api_login/login',
+          data:values
+        }).done(function(res){
+          if(res.msg==='success'){
+            message.success('登录成功！');
+            //登录成功后将用户信息和login_token存入sessionStorage
+            util.setSessionStorage('userinfo',res.data);
+            setTimeout(function(){
+              hashHistory.push('/realtime');
+            },2000);
+          }else{
+            message.error(res.msg);
+          }
+          //message[res.msg==='success'?'success':'error'](res.msg);
+        });
       }
     });
   }
@@ -25,7 +42,7 @@ class LoginForm extends React.Component {
         
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
+          {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input addonBefore={<Icon type="user" />} placeholder="Username" />

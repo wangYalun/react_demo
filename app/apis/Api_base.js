@@ -10,7 +10,7 @@ export default class Api_base {
         return this.ajax(obj);
     }
     appendConfig(data) {
-        if(!util.getSessionStorage('userinfo')){
+        if (!util.getSessionStorage('userinfo')) {
             return data;
         }
         var permission = util.getSessionStorage('permission');
@@ -33,8 +33,17 @@ export default class Api_base {
             console.log('error:url is null');
             return;
         } else {
-            obj.url = this.baseUrl + "/api" + obj.url;
-            obj.data = this.appendConfig(obj.data);
+            var userinfo;
+
+            if (!(userinfo = util.getSessionStorage('userinfo'))) {
+                return $.ajax(obj);
+            }
+            obj.url = this.baseUrl + obj.url;
+            //跨域请求无法使用headers
+            obj.data = obj.data || {};
+            obj.data.login_token = userinfo.login_token;
+
+            //obj.headers = { 'login_token': userinfo.login_token }
             obj.dataType = "json";
         }
         return $.ajax(obj);

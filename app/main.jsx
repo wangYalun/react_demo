@@ -35,19 +35,37 @@ import App from './pages/index';
 
 //加载工具类
 import util from './utils/util';
-//设为全局变量
-window.util=util;
+
+
+const Main = React.createClass({
+  getInitialState() {
+    return {userinfo:util.getSessionStorage('userinfo')};
+  },
+  componentWillMount(){
+    var userinfo=this.state.userinfo;
+    if(!(userinfo&&userinfo.login_token)){
+      hashHistory.push('/login');
+    }
+  },
+  componentDidMount() {
+
+  },
+  render() {
+    return (
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Realtime} />
+          <Route path='/realtime' component={Realtime} />
+        </Route>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Router>)
+  }
+});
 
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-        <IndexRoute component={Realtime}/>
-        <Route path='/realtime' component={Realtime} />
-    </Route>
-    <Route path="/login" component={Login}/>
-    <Route path="/register" component={Register}/>
-  </Router>,
+  <Main />,
   document.getElementById('container')
 );
 

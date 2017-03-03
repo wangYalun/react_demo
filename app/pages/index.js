@@ -8,42 +8,11 @@ const MenuItemGroup = Menu.ItemGroup;
 
 const {Header, Footer, Sider, Content} = Layout;//对象的解析赋值
 
-const options = [
-    {
-        value: "all",
-        label: "All",
-        children: [{
-            value: "all",
-            label: 'All'
-        }]
-    },
-    {
-        value: "android",
-        label: "Android",
-        children: [{
-            value: "all",
-            label: 'All'
-        }, {
-            value: "google",
-            label: "Google"
-        }]
-    },
-    {
-        value: "ios",
-        label: "IOS",
-        children: [{
-            value: "all",
-            label: 'All'
-        }]
-    }
-];
-
 
 
 export default React.createClass({
     render() {
         return (
-
             <Layout>
                 <Header className="header">
                     <Row>
