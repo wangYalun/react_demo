@@ -82,7 +82,7 @@ export default React.createClass({
         </ContentHeader>
         <Row>
           <Col span={8}> <Mod modName="时段分析" inline={true}>
-            <Hchart dataNum={10}/>
+            <Hchart />
           </Mod></Col>
           <Col span={8}><Mod modName="详细数据" inline={true}>
             <Table dataSource={dataSource} columns={columns} size="small" />

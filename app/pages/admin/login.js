@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        api_base.request({
+        api_base.login({
           method:'post',
           url:'/api_login/login',
           data:values

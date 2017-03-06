@@ -48,6 +48,18 @@ export default class Api_base {
         }
         return $.ajax(obj);
     }
+    login(obj) {
+        if (!obj.url) {
+            console.log('error:url is null');
+            return;
+        } else {
+           
+            obj.url = this.baseUrl + obj.url;
+            //obj.headers = { 'login_token': userinfo.login_token }
+            obj.dataType = "json";
+        }
+        return $.ajax(obj);
+    }
 }
 var api_base = new Api_base();
 

@@ -24,7 +24,8 @@
     text-align: center;
 }
 .userinfo{
-    
+    padding:0 10px;
+    text-align: right;
 }
 .content-header{
     padding:12px 20px;

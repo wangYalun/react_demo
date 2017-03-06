@@ -7,6 +7,9 @@ export default React.createClass({
         return {};
     },
     componentDidMount() {
+        this.showChart();
+    },
+    showChart() {
         Highcharts.chart(this.refs.chart_demo, {
             chart: {
                 type: 'bar'

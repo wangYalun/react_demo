@@ -1,25 +1,37 @@
 import React from 'react';
-import { Layout, Cascader, Menu, Icon, Row, Col } from 'antd';
+import { Layout, Cascader, Menu, Icon, Row, Col,message } from 'antd';
 import { Link, hashHistory, browserHistory } from 'react-router';
+import util from '../utils/util';
 
 require('./index.css');
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-const {Header, Footer, Sider, Content} = Layout;//对象的解析赋值
+const { Header, Footer, Sider, Content } = Layout;//对象的解析赋值
 
 
 
 export default React.createClass({
+    logout() {
+        util.removeSessionStorage('userinfo');
+        message.success('退出成功');
+        setTimeout(function () {
+            hashHistory.push('/login');
+        }, 2000);
+    },
+    getInitialState(){
+        var userinfo=util.getSessionStorage('userinfo');
+        return {userinfo:userinfo};
+    },
     render() {
         return (
             <Layout>
                 <Header className="header">
                     <Row>
                         <Col span={4}><div className="logo"></div></Col>
-                        <Col span={2} offset={16}><div className="userinfo">Allen</div>
+                        <Col span={2} offset={16}><div className="userinfo">{this.state.userinfo.nickname}</div>
                         </Col>
-                        <Col span={2}><a className="logout">退出登录</a></Col>
+                        <Col span={2}><a className="logout" onClick={this.logout}>退出登录</a></Col>
                     </Row>
                 </Header>
 
