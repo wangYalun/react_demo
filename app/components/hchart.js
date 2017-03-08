@@ -10,6 +10,8 @@ export default React.createClass({
         this.showChart();
     },
     showChart() {
+        var num=this.props.dataNum;
+        console.log( typeof +num);
         Highcharts.chart(this.refs.chart_demo, {
             chart: {
                 type: 'bar'
@@ -27,7 +29,7 @@ export default React.createClass({
             },
             series: [{
                 name: 'Jane',
-                data: [1, 0, 4]
+                data: [1, 0, +num]
             }, {
                 name: 'John',
                 data: [5, 7, 3]

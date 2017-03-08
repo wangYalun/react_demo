@@ -95,5 +95,23 @@
 }
 
 .chart{
-    max-width: 1400px;
+    
+}
+.chart-controller{
+    padding:0 0 0 10px;
+    margin:5px 0 10px;
+    display: block;
+}
+
+.chart-controller .l{
+    float: left;
+}
+.chart-controller .r{
+    float: right;
+}
+.clearfix::after{
+    content:"\200b";
+    display:block;
+    height: 0;
+    clear: both;
 }

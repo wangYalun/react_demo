@@ -43,7 +43,7 @@ export default React.createClass({
                             defaultOpenKeys={['summary']}
                             style={{ height: '100%' }}
                         >
-                            <SubMenu key="summary" title={<span><Icon type="bars" />Summary Data</span>}>
+                            <SubMenu key="summary" title={<span><Icon type="bars" />概要数据</span>}>
                                 <Menu.Item key="1"><Link to="/realtime">实时统计</Link></Menu.Item>
                                 <Menu.Item key="2">Time period Analysis</Menu.Item>
                                 <Menu.Item key="3">Daily</Menu.Item>
