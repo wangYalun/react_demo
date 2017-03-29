@@ -40,7 +40,8 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("fsd");
+        
+        values.login_token="fasdfasdfasdfasd";//offline, virtual login token
         this.loginSuccess(values);
       }else{
         message.error("login error");

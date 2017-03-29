@@ -31,6 +31,9 @@ import Login from './pages/admin/login';
 
 //首页
 import App from './pages/index';
+//测试页面
+
+import Map from './pages/test/map';
 
 
 //加载工具类
@@ -56,6 +59,7 @@ const Main = React.createClass({
         <Route path="/" component={App}>
           <IndexRoute component={Realtime} />
           <Route path='/realtime' component={Realtime} />
+          <Route path='/map' component={Map} />
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />

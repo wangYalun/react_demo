@@ -45,7 +45,7 @@ export default React.createClass({
                         >
                             <SubMenu key="summary" title={<span><Icon type="bars" />概要数据</span>}>
                                 <Menu.Item key="1"><Link to="/realtime">实时统计</Link></Menu.Item>
-                                <Menu.Item key="2">Time period Analysis</Menu.Item>
+                                <Menu.Item key="2"><Link to="/map">地图DEMO</Link></Menu.Item>
                                 <Menu.Item key="3">Daily</Menu.Item>
                                 <Menu.Item key="4">Each Platform Data</Menu.Item>
                             </SubMenu>
