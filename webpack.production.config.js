@@ -15,20 +15,24 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
-      { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' }
+      { test: /\.css$/,  loader: 'style-loader!css-loader' },
+      { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=25000'
+      }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.DedupePlugin(),
+    // new uglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
@@ -39,6 +43,6 @@ module.exports = {
       { from: './app/main.css', to: 'main.css' },
       { from: './app/jqueryui.css', to: 'jqueryui.css' },
       { from: './app/images', to: 'images' }
-    ]),
+    ])
   ]
 };

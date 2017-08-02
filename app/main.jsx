@@ -39,11 +39,11 @@ import util from './utils/util';
 
 const Main = React.createClass({
   getInitialState() {
-    return {userinfo:util.getSessionStorage('userinfo')};
+    return { userinfo: util.getSessionStorage('userinfo') };
   },
-  componentWillMount(){
-    var userinfo=this.state.userinfo;
-    if(!(userinfo&&userinfo.login_token)){
+  componentWillMount() {
+    var userinfo = this.state.userinfo;
+    if (!(userinfo && userinfo.login_token)) {
       hashHistory.push('/login');
     }
   },

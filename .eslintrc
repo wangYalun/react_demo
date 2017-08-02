@@ -3,8 +3,8 @@
     "browser": true,
     "node": true
   },
-  ecmaFeatures: {
-    jsx: true
+  "ecmaFeatures": {
+    "jsx": true
   },
   "globals": {
     "window": true,
