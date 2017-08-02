@@ -45,7 +45,11 @@ class LoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
 
+<<<<<<< HEAD
       <Form onSubmit={this.handleSubmitOffline} className="login-form">
+=======
+      <Form onSubmit={this.offlineHandleSubmit} className="login-form">
+>>>>>>> 8e77a6d4c5f44bd0babeff0dd80909d60b6b8635
         <FormItem>
           {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your username!' }],
