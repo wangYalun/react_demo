@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 //概要数据
-import Realtime from './pages/profile/realtime';
+import Realtime from './pages/profile/realtime_demo';
 import Interval from './pages/profile/Interval';
 import Daily from './pages/profile/Daily';
 import Platform from './pages/profile/Platform';

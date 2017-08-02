@@ -3,7 +3,7 @@ import { Link, hashHistory, browserHistory } from 'react-router';
 import { api_base } from '../../apis/Api_base';
 import util from '../../utils/util';
 
-import { Form, Icon, Input, Button, Checkbox,message } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 const FormItem = Form.Item;
 
 require('./admin.css');
@@ -17,18 +17,18 @@ class LoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         api_base.login({
-          method:'post',
-          url:'/api_login/login',
-          data:values
-        }).done(function(res){
-          if(res.msg==='success'){
+          method: 'post',
+          url: '/api_login/login',
+          data: values
+        }).done(function (res) {
+          if (res.msg === 'success') {
             message.success('登录成功！');
             //登录成功后将用户信息和login_token存入sessionStorage
-            util.setSessionStorage('userinfo',res.data);
-            setTimeout(function(){
+            util.setSessionStorage('userinfo', res.data);
+            setTimeout(function () {
               hashHistory.push('/realtime');
-            },2000);
-          }else{
+            }, 2000);
+          } else {
             message.error(res.msg);
           }
           //message[res.msg==='success'?'success':'error'](res.msg);
@@ -36,24 +36,29 @@ class LoginForm extends React.Component {
       }
     });
   }
+  handleSubmitOffline = (e) => {
+    util.setSessionStorage('userinfo',{username:"allen",token:"test"});
+    hashHistory.push('/realtime');
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-        
-      <Form onSubmit={this.handleSubmit} className="login-form">
+
+      <Form onSubmit={this.handleSubmitOffline} className="login-form">
         <FormItem>
           {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input addonBefore={<Icon type="user" />} placeholder="Username" />
-          )}
+            )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }],
           })(
             <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
-          )}
+            )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('remember', {
@@ -61,7 +66,7 @@ class LoginForm extends React.Component {
             initialValue: true,
           })(
             <Checkbox>Remember me</Checkbox>
-          )}
+            )}
 
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
@@ -72,14 +77,14 @@ class LoginForm extends React.Component {
     );
   }
 }
-const TheLoginForm=Form.create()(LoginForm);
+const TheLoginForm = Form.create()(LoginForm);
 export default React.createClass({
-    render(){
-        return (<div id="components-login-form">
-            <div className="logo"/>
-            <TheLoginForm/>
-        </div>);
-    }
+  render() {
+    return (<div id="components-login-form">
+      <div className="logo" />
+      <TheLoginForm />
+    </div>);
+  }
 })
 
 
